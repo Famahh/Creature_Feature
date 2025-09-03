@@ -1,6 +1,9 @@
 package net.famah.creaturefeature;
 
 import com.mojang.logging.LogUtils;
+import net.famah.creaturefeature.item.ModCreativeModeTabs;
+import net.famah.creaturefeature.item.ModItems;
+import net.famah.creaturefeature.sound.ModSounds;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -13,6 +16,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import software.bernie.geckolib.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(CreatureFeature.MOD_ID)
@@ -27,6 +31,12 @@ public class CreatureFeature
     {
         IEventBus modEventBus = context.getModEventBus();
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+
+        ModSounds.register(modEventBus);
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -36,6 +46,8 @@ public class CreatureFeature
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
+        GeckoLib.initialize();
 
 
     }

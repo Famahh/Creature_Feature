@@ -1,0 +1,18 @@
+{
+  "radio_video": {
+    "sounds": [
+      {
+        "name": "creaturefeature:radio_video",
+        "stream": true
+      }
+    ]
+  },
+  "thc": {
+    "sounds": [
+      {
+        "name": "creaturefeature:thc",
+        "stream": true
+      }
+    ]
+  }
+}
